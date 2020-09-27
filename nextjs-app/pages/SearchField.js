@@ -4,11 +4,10 @@ const SearchField = () => {
   const [search, setSearch] = useState('');
   const getValue = e => {
     let value = e.target.value;
-    console.log(search);
     setSearch(value);
     return value;
   };
-  console.log(getValue);
+  console.log(getValue + search);
 
   const styles = {
     display: 'flex',
