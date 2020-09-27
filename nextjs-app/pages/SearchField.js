@@ -5,9 +5,9 @@ const SearchField = () => {
   const getValue = e => {
     let value = e.target.value;
     setSearch(value);
+    console.log(search);
     return value;
   };
-  console.log(getValue + search);
 
   const styles = {
     display: 'flex',
@@ -18,7 +18,9 @@ const SearchField = () => {
       <form>
         <div style={styles}>
           <input className="text-field" type="text" label="Filter"></input>
-          <button className="button">Filter</button>
+          <button className="button" onClick={() => getValue()}>
+            Filter
+          </button>
         </div>
       </form>
     </div>
