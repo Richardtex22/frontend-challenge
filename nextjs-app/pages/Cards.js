@@ -12,11 +12,8 @@ const Cards = ({ van, counter }) => {
 
   const updateCount = () => {
     if (count <= counter) {
-      console.log('ok');
       setCount(count + 4);
     } else setCount(counter);
-
-    console.log(count);
   };
 
   const reload = () => {
@@ -24,7 +21,7 @@ const Cards = ({ van, counter }) => {
   };
 
   return (
-    <section className="feed">
+    <>
       <div className="grid">
         {newVan.splice(0, count).map(item => {
           return (
@@ -57,9 +54,12 @@ const Cards = ({ van, counter }) => {
       <div className="button-container">
         <div className="center">
           {count > counter ? (
-            <button className="button" onClick={() => reload()}>
-              Home
-            </button>
+            <div className="center">
+              <h2 style={{ marginBottom: '2rem' }}>No results to display...</h2>
+              <button className="button" onClick={() => reload()}>
+                Home
+              </button>
+            </div>
           ) : (
             <button className="button" onClick={() => updateCount()}>
               Load More
@@ -67,7 +67,7 @@ const Cards = ({ van, counter }) => {
           )}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
