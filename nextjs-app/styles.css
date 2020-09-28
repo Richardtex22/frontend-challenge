@@ -17,6 +17,7 @@ body {
       monospace;
   }
   .label {
+    font-size: 1.4rem;
     margin-left: 3rem;
   }
   .header {
@@ -29,9 +30,9 @@ body {
 .button {
   color: #ffffff;
   background-color:  #357a38;
-  height: 2.5rem;
-  width: 6rem;
-  font-size: 0.8rem;
+  height: 3.5rem;
+  width: 8rem;
+  font-size: 1.2rem;
   border-radius: .2rem;
 }
 
@@ -40,9 +41,9 @@ body {
 }
 
 .text-field {
-  width: 25rem;
+  width: 36rem;
   margin: 1rem .5rem 1rem 3rem;
-  height: 2.5rem;
+  height: 3.5rem;
   border-radius: 0.2rem;
   border: 1px solid #357a38;
   padding: 1rem;
@@ -53,53 +54,59 @@ body {
 
 .grid {
   min-height: 100%;
-  max-width: 75rem;
+  max-width: 100rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-left: 3rem;
 }
 .grid > div {
   flex-basis: calc(50% - 0rem);
 }
+
 .location {
-  font-size: 1.4rem;
-  font-weight: 600;
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: gray;
   text-transform: uppercase;
 }
 .details {
-  width: 12rem;
+  width: 18rem;
   padding-top: 1.5rem;
   display: flex;
   align-items: center;
 }
 .reviews {
   color: gray;
-  font-weight: 600;
-  font-size: .7rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
 .description {
+  width: 18rem;
   color: black;
-  font-weight: 600;
-  font-size: .6rem;
-  /*width: 12rem;*/
-  padding-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  padding-bottom: 1.5rem;
 }
 .price {
   color: black;
-  font-weight: 600;
-  font-size: .8rem;
-  padding-right: .5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  padding-right: 1rem;
 }
 .image {
-  max-width: 10rem;
-  max-height: 10rem;
+  margin-right: 1rem;
+  max-width: 21rem;
+  max-height: 14rem;
   border-radius: 0.3rem;
+  object-fit: fill !important;
 }
 .box {
   display: inline-flex;
-  margin: 1rem 1rem 1rem 3rem;
-  width: 25rem;
+  margin: 1rem 1.5rem 2rem 0;
+  width: 44rem;
+  height: 14rem;
   box-shadow: unset !important;
 }
 
@@ -119,7 +126,6 @@ body {
 .icon {
   color: orange;
 }
-
 .cont {
   margin: 5rem;
 }
@@ -127,17 +133,19 @@ body {
   display: flex;
   align-items: center;
   margin-top: -0.5rem;
-  width: 28rem;
+  margin-bottom: 1rem;
+  width: 50rem;
 }
 
 /* breakpoints for mobile */
 
 @media (max-width: 420px) {
     .label {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     .text-field {
-      height: 3.5rem;
+      width: 34rem;
+      height: 4.5rem;
     }
     .center {
       margin: 0;
@@ -154,47 +162,51 @@ body {
       flex-direction: column;
       align-items: center;
       margin-right: 1.5rem;
+      height: 45rem;
     }
     .grid {
       flex-direction: column;
+      margin-left: 3.5rem;
     }
     .image {
-      max-width: 25rem;
-      max-height: 18rem;
+      max-width: 47rem;
+      max-height: 30rem;
       border-radius: 0.5rem;
     }
     .info {
-      width: 27rem;
+      width: 46rem;
       margin-left: 0;
     }
     .location {
       padding-top: .5rem;
-      font-size: 1rem;
+      font-size: 2rem;
     }
     .description {
-      font-size: 1.2rem;
+      width: 42rem;
+      font-size: 2rem;
+      padding-bottom: .5rem;
     }
     .details {
-      padding-top: .5rem;
+      padding-top: .2rem;
       display: flex;
       align-items: center;
       width: unset;
     }
     .price {
-      font-size: 1.4rem;
+      font-size: 1.9rem;
       padding-right: 1rem;
     }
     .reviews {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
     }
     .button {
-      width: 9rem;
-      height: 3.5rem;
-      font-size: 1.2rem;
+      width: 10rem;
+      height: 4.5rem;
+      font-size: 1.3rem;
     }
     .text-container {
-      height: 3rem;
+      height: 4rem;
       margin-top: 0.8rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 4rem;
     }
 }

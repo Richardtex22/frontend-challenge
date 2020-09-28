@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchField from './SearchField';
 import Cards from './Cards';
+import './_app.css';
 import '../styles.css';
 import getVans from './helpers/getVans';
 

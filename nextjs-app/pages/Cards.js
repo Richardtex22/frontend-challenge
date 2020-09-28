@@ -24,6 +24,7 @@ const Cards = ({ van, counter }) => {
     <>
       <div className="grid">
         {newVan.splice(0, count).map(item => {
+          const price = item.price.toString().slice(0, 3);
           return (
             <div key={item.id}>
               <Card className="box">
@@ -34,7 +35,7 @@ const Cards = ({ van, counter }) => {
                   </h6>
                   <p className="description">{item.name}</p>
                   <div className="details">
-                    <p className="price">${item.price}</p>
+                    <p className="price">${price}</p>
                     <p className="icon" style={{ fontSize: 0 }}>
                       <StarIcon />
                       <StarIcon />
