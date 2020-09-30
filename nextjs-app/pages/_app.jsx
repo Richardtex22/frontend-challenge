@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import SearchField from './SearchField';
 import Cards from './Cards';
+import getVans from './helpers/getVans';
 import './_app.css';
 import '../styles.css';
-import getVans from './helpers/getVans';
 
 export default function App() {
   const [van, setVan] = useState({});
@@ -24,7 +24,7 @@ export default function App() {
     <>
       <div className="cont">
         <SearchField fetchVans={fetchVans} />
-        <Cards van={van} counter={counter} fetchVans={fetchVans} />
+        <Cards van={van} counter={counter} />
       </div>
     </>
   );

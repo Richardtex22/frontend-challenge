@@ -5,10 +5,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import StarIcon from '@material-ui/icons/Star';
 import StarHalfIcon from '@material-ui/icons/StarHalf';
 
-const Cards = ({ van, counter }) => {
+const Cards = ({ van }) => {
   const [count, setCount] = useState(8);
 
   const newVan = Object.values(van);
+  const counter = newVan.length;
 
   const updateCount = () => {
     if (count <= counter) {
@@ -43,7 +44,6 @@ const Cards = ({ van, counter }) => {
                       <StarIcon />
                       <StarHalfIcon />
                     </p>
-
                     <p className="reviews">({item.reviews})</p>
                   </div>
                 </CardContent>
@@ -54,11 +54,10 @@ const Cards = ({ van, counter }) => {
       </div>
       <div className="button-container">
         <div className="center">
-          {count > counter ? (
+          {count > counter || !counter ? (
             <div className="center">
-              <h2 style={{ marginBottom: '2rem' }}>No results to display...</h2>
               <button className="button" onClick={() => reload()}>
-                Home
+                Refresh
               </button>
             </div>
           ) : (
