@@ -30,6 +30,11 @@
 .button:hover {
   background-color: #4caf50;
 }
+
+#refresh {
+  margin-right: 1rem;
+}
+
 .title {
   height: 3rem;
   background-color: #4caf50;
@@ -53,6 +58,14 @@
   display: flex;
 }
 
+.details-container {
+display: flex;
+justify-content: center;
+}
+.info-details {
+  width: auto;
+  margin-left: 0;
+}
 .text-field {
   width: 36rem;
   margin: 1rem .5rem 1rem 3rem;
@@ -102,6 +115,14 @@
   font-size: 1rem;
   padding-bottom: 1.5rem;
 }
+.description-details {
+  margin-top: -5rem;
+  width: 50rem;
+  color: black;
+  font-weight: 700;
+  font-size: 2.2rem;
+  padding-bottom: 1rem;
+}
 .price {
   color: black;
   font-weight: 700;
@@ -115,18 +136,40 @@
   border-radius: 0.3rem;
   cursor: pointer;  
 }
+.avatar{
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  object-position: center;
+}
 .image-detail {
   max-width: 45rem;
   max-height: 29rem;
   border-radius: 0.3rem;
-  margin-right: .5rem;
-  margin-left: .5rem;
+  padding-right: 1rem;
 }
 
 .image:hover {
   transition: all 5s ease;
 }
-
+.price-detail {
+  color: #fff;
+  position: relative;
+  top: -1rem;
+  left: 48rem;
+  width: 6rem;
+  height: 6rem;
+  background-color: #4caf50;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+}
+.price-text{
+  font-size: 1.2rem;
+  text-align: center;
+  padding-top: 2.2rem;
+}
 .box {
   display: inline-flex;
   margin: 1rem 1.5rem 2rem 0;
@@ -136,15 +179,13 @@
 }
 .box-details {
   display: flex;
-  margin: 2rem 1rem;
+  margin: 1rem 0rem;
   box-shadow: unset !important;
 }
-
 .button-container { 
   height: 12.5rem;
   position: relative;
 }
-
 .center {
   margin: 0;
   position: absolute;
@@ -166,7 +207,15 @@
   margin-bottom: 1rem;
   width: 50rem;
 }
-
+.owner-info {
+  width: 20rem;
+  display: -webkit-inline-flex;
+}
+.name{
+  font-size: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: 1.2rem;
+}
 .error {
   font-size: 5rem;
   color: red;
@@ -183,6 +232,52 @@
 /* breakpoints for mobile */
 
 @media (max-width: 420px) {
+  .details-container{
+    height: 20rem;
+    margin-bottom: 2rem;
+  }
+    .box-details {
+      display: block;
+      margin: 1rem 0rem;
+      box-shadow: unset !important;
+    }
+    .image-detail {
+      padding-bottom: 1rem;
+      padding-right: 0;
+    }
+    .info-details{
+      max-width: 44rem;
+    }
+    .description-details{
+      width: 44rem;
+      font-size: 2.3;
+      font-weight: 600;
+    }
+    .price-detail{
+      top: -7rem;
+      left: 35rem;
+      width: 9rem;
+      height: 9rem;
+    }
+    .price-text{
+      font-size: 2.2rem;
+      padding-top: 3rem;
+      margin-top: -4rem;
+    }
+    .name{
+      font-size: 2rem;
+      font-weight: 500;
+      padding-top: 1.8rem;
+      padding-left: 1.5rem;
+    }
+    .owner-info{
+      width: 24rem;
+      padding-top: .5rem;
+    }
+    .avatar{
+      width: 7rem;
+      height: 7rem;
+    }
     .label {
       font-size: 2rem;
     }
@@ -198,7 +293,7 @@
       transform: translate(-50%, -50%);
     }
     .cont {
-      margin: 1rem -1.5rem;
+      margin: 1rem -0.5rem;
       max-width: 27.5rem;
     }
     .box {
@@ -217,9 +312,10 @@
       border-radius: 0.5rem;
     }
     .info {
-      width: 46rem;
+      width: 45rem;
       margin-left: 0;
     }
+    
     .location {
       padding-top: .5rem;
       font-size: 2rem;
