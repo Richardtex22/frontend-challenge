@@ -5,7 +5,6 @@ import {
   CardMedia,
   Dialog,
   DialogTitle,
-  DialogContent,
   useMediaQuery,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
@@ -21,14 +20,16 @@ const Cards = ({ van }) => {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log(fullScreen);
 
   const newVan = Object.values(van);
   const counter = newVan.length;
   const updateCount = () => {
     if (count <= counter) {
       setCount(count + 4);
-    } else setCount(counter);
+    } else {
+      setCount(counter);
+      window.scrollTo(0);
+    }
   };
 
   const handleClose = () => {
@@ -39,6 +40,10 @@ const Cards = ({ van }) => {
       setDetails(newDetails);
       setOpen(true);
     });
+  };
+
+  const toTop = () => {
+    window.scroll(0, 0);
   };
 
   const reload = () => {
@@ -56,32 +61,52 @@ const Cards = ({ van }) => {
         <DialogTitle className="title">
           <CloseIcon edge="end" className="close-button" onClick={handleClose}></CloseIcon>
         </DialogTitle>
-        <DialogContent className="dialog-content">
+        <div className="dialog-content">
           <Card className="box-details" key={details.id}>
             {details.arrayImgs ? (
-              details.arrayImgs.slice(0, 2).map((el, index) => {
-                return (
-                  <CardMedia
-                    key={index}
-                    className="image-detail"
-                    component="img"
-                    image={el}
-                  ></CardMedia>
-                );
-              })
+              !fullScreen ? (
+                details.arrayImgs.slice(0, 2).map((el, index) => {
+                  return (
+                    <CardMedia
+                      key={index}
+                      className="image-detail"
+                      component="img"
+                      image={el}
+                    ></CardMedia>
+                  );
+                })
+              ) : (
+                details.arrayImgs.slice(0, 1).map((el, index) => {
+                  return (
+                    <CardMedia
+                      key={index}
+                      className="image-detail"
+                      component="img"
+                      image={el}
+                    ></CardMedia>
+                  );
+                })
+              )
             ) : (
               <NotFound handleClose={handleClose}></NotFound>
             )}
           </Card>
-          <CardContent>
-            <div className="info">
-              <h6 className="location">
-                {details.type} - {details.location}
-              </h6>
-              <p className="description">{details.name}</p>
+        </div>
+        <CardContent className="details-container">
+          <div className="info-details">
+            <h6 className="location">
+              {details.type} - {details.location}
+            </h6>
+            <div className="price-detail">
+              <p className="price-text">${details.price}</p>
             </div>
-          </CardContent>
-        </DialogContent>
+            <p className="description-details">{details.vehicule}</p>
+            <div className="owner-info">
+              <img alt="details-images" src={details.avatar} className="avatar"></img>
+              <p className="name">{details.name}</p>
+            </div>
+          </div>
+        </CardContent>
       </Dialog>
       <div className="grid">
         {newVan.splice(0, count).map(item => {
@@ -123,10 +148,13 @@ const Cards = ({ van }) => {
       </div>
       <div className="button-container">
         <div className="center">
-          {count > counter || !counter ? (
-            <div className="center">
-              <button className="button" onClick={() => reload()}>
+          {count > counter ? (
+            <div className="button-ref">
+              <button className="button" id="refresh" onClick={() => reload()}>
                 Refresh
+              </button>
+              <button className="button" id="top" onClick={() => toTop()}>
+                Go to top
               </button>
             </div>
           ) : (

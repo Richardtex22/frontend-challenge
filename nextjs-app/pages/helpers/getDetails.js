@@ -6,7 +6,7 @@ const getDetails = async vanId => {
   const res = await fetch(url);
 
   if (res.status === 404) {
-    console.log(res);
+    console.log(res.status + res.statusText);
   }
   const obj = await res.json();
 
@@ -24,12 +24,13 @@ const getDetails = async vanId => {
   const ownerData = Object.values(ownerInfo);
   console.log(info);
   console.log(ownerData);
+  const price = info.price_per_day.toString().slice(0, 3);
   const newObj = {
     id: infoArr.id,
     location: info.location.city + ', ' + info.location.state,
     vehicule: info.name,
     type: info.display_vehicle_type,
-    price: info.price_per_day,
+    price: price,
     arrayImgs: twoImages,
     avatar: ownerData[0].avatar_url,
     name: ownerData[0].first_name + ' ' + ownerData[0].last_name,
