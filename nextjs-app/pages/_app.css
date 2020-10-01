@@ -1,0 +1,9 @@
+.cont {
+    margin: 3rem;
+  }
+
+@media (max-width: 420px) {
+    .cont {
+        margin: 3rem;
+    }
+}

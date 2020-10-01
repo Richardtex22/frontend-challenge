@@ -1,27 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const SearchField = () => {
+const SearchField = ({ fetchVans }) => {
   const [search, setSearch] = useState('');
-  const getValue = e => {
-    let value = e.target.value;
-    setSearch(value);
-    return value;
-  };
-  console.log(getValue + search);
 
-  const styles = {
-    display: 'flex',
-    alignItems: 'center ',
+  useEffect(() => {
+    updateVans(search);
+  }, []);
+
+  const updateVans = search => {
+    fetchVans(search);
+    setSearch('');
   };
+
   return (
-    <div className="mx-auto mt-8">
-      <form>
-        <div style={styles}>
-          <input className="text-field" type="text" label="Filter"></input>
-          <button className="button">Filter</button>
-        </div>
-      </form>
-    </div>
+    <>
+      <p className="header">Campervans</p>
+      <label className="label" htmlFor="search">
+        Filter
+      </label>
+      <div className="text-container">
+        <input
+          className="text-field"
+          id="search"
+          value={search}
+          type="text"
+          label="Filter"
+          onChange={e => setSearch(e.target.value)}
+        ></input>
+        <button className="button" onClick={() => updateVans(search)}>
+          Filter
+        </button>
+      </div>
+    </>
   );
 };
 

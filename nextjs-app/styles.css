@@ -4,46 +4,62 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
-
+  .label {
+    font-size: 1.4rem;
+    margin-left: 3rem;
+  }
   .header {
     font-weight: 700;
-    margin: 2rem 3rem;
-    font-size: 2rem;
+    margin: 4rem auto 3rem 3rem;
+    font-size: 3rem;
     line-height: 1rem;
     letter-spacing: 0.12rem;
 }
 .button {
   color: #ffffff;
   background-color:  #357a38;
-  height: 2.5rem;
-  width: 6rem;
-  font-size: 0.8rem;
+  height: 3.5rem;
+  width: 8rem;
+  font-size: 1.2rem;
   border-radius: .2rem;
 }
-
 .button:hover {
   background-color: #4caf50;
 }
+.title {
+  height: 3rem;
+  background-color: #4caf50;
+}
+.content {
+  height: auto;
+}
+.close-button {
+  position: absolute;
+  color: #fff;
+  top: .8rem;
+  right: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.dialog-content {
+  align-self: center;
+}
+
+.card-details {
+  display: flex;
+}
 
 .text-field {
-  width: 25rem;
+  width: 36rem;
   margin: 1rem .5rem 1rem 3rem;
-  height: 2.5rem;
+  height: 3.5rem;
   border-radius: 0.2rem;
   border: 1px solid #357a38;
+  padding: 1rem;
 }
 .text-field:hover {
   border-color: #4caf50;
@@ -51,57 +67,76 @@ body {
 
 .grid {
   min-height: 100%;
-  max-width: 60rem;
+  max-width: 100rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-left: 3rem;
 }
 .grid > div {
   flex-basis: calc(50% - 0rem);
 }
 
-.info {
-  margin-left: .5rem;
-}
 .location {
-  font-size: .6rem;
-  font-weight: 600;
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: gray;
   text-transform: uppercase;
 }
 .details {
-  width: 12rem;
+  width: 18rem;
   padding-top: 1.5rem;
   display: flex;
   align-items: center;
 }
 .reviews {
   color: gray;
-  font-weight: 600;
-  font-size: .7rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
 .description {
+  width: 18rem;
   color: black;
-  font-weight: 600;
-  font-size: .6rem;
-  width: 12rem;
-  padding-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  padding-bottom: 1.5rem;
 }
 .price {
   color: black;
-  font-weight: 600;
-  font-size: .8rem;
-  padding-right: .5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  padding-right: 1rem;
 }
 .image {
-  max-width: 10rem;
-  max-height: 10rem;
+  margin-right: 1rem;
+  max-width: 21rem;
+  max-height: 14rem;
   border-radius: 0.3rem;
+  cursor: pointer;  
 }
+.image-detail {
+  max-width: 45rem;
+  max-height: 29rem;
+  border-radius: 0.3rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
+}
+
+.image:hover {
+  transition: all 5s ease;
+}
+
 .box {
   display: inline-flex;
-  margin: 1rem 1rem 1rem 3rem;
-  width: 25rem;
+  margin: 1rem 1.5rem 2rem 0;
+  width: 44rem;
+  height: 14rem;
+  box-shadow: unset !important;
+}
+.box-details {
+  display: flex;
+  margin: 2rem 1rem;
   box-shadow: unset !important;
 }
 
@@ -121,7 +156,100 @@ body {
 .icon {
   color: orange;
 }
+.cont {
+  margin: 5rem;
+}
+.text-container {
+  display: flex;
+  align-items: center;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  width: 50rem;
+}
 
-.MuiSvgIcon-root {
-  font-size: .7rem !important;
+.error {
+  font-size: 5rem;
+  color: red;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* breakpoints for mobile */
+
+@media (max-width: 420px) {
+    .label {
+      font-size: 2rem;
+    }
+    .text-field {
+      width: 34rem;
+      height: 4.5rem;
+    }
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .cont {
+      margin: 1rem -1.5rem;
+      max-width: 27.5rem;
+    }
+    .box {
+      flex-direction: column;
+      align-items: center;
+      margin-right: 1.5rem;
+      height: 45rem;
+    }
+    .grid {
+      flex-direction: column;
+      margin-left: 3.5rem;
+    }
+    .image {
+      max-width: 47rem;
+      max-height: 30rem;
+      border-radius: 0.5rem;
+    }
+    .info {
+      width: 46rem;
+      margin-left: 0;
+    }
+    .location {
+      padding-top: .5rem;
+      font-size: 2rem;
+    }
+    .description {
+      width: 42rem;
+      font-size: 2rem;
+      padding-bottom: .5rem;
+    }
+    .details {
+      padding-top: .2rem;
+      display: flex;
+      align-items: center;
+      width: unset;
+    }
+    .price {
+      font-size: 1.9rem;
+      padding-right: 1rem;
+    }
+    .reviews {
+      font-size: 1.8rem;
+    }
+    .button {
+      width: 10rem;
+      height: 4.5rem;
+      font-size: 1.3rem;
+    }
+    .text-container {
+      height: 4rem;
+      margin-top: 0.8rem;
+      margin-bottom: 4rem;
+    }
 }

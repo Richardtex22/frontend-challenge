@@ -1,0 +1,41 @@
+const getDetails = async vanId => {
+  const url = !vanId
+    ? 'https://odc-search-staging.herokuapp.com/rentals/'
+    : 'https://odc-search-staging.herokuapp.com/rentals/' + vanId;
+
+  const res = await fetch(url);
+
+  if (res.status === 404) {
+    console.log(res);
+  }
+  const obj = await res.json();
+
+  const infoArr = obj?.data;
+  const info = obj?.data?.attributes;
+  const dataIncluded = obj?.included;
+  console.log(dataIncluded);
+  if (!dataIncluded) {
+    return [];
+  }
+  const arrayImgs = Object.values(dataIncluded);
+  const filterImg = arrayImgs.filter(img => img.type === 'images');
+  const twoImages = filterImg.map(elem => elem.attributes.url);
+  const ownerInfo = dataIncluded.filter(elem => elem.type === 'users').map(x => x.attributes);
+  const ownerData = Object.values(ownerInfo);
+  console.log(info);
+  console.log(ownerData);
+  const newObj = {
+    id: infoArr.id,
+    location: info.location.city + ', ' + info.location.state,
+    vehicule: info.name,
+    type: info.display_vehicle_type,
+    price: info.price_per_day,
+    arrayImgs: twoImages,
+    avatar: ownerData[0].avatar_url,
+    name: ownerData[0].first_name + ' ' + ownerData[0].last_name,
+  };
+  console.log(newObj);
+  return newObj;
+};
+
+export default getDetails;

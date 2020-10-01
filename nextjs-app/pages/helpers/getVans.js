@@ -1,12 +1,21 @@
-const getVans = async () => {
+const getVans = async input => {
   const url =
-    'https://odc-search-staging.herokuapp.com/rentals?filter[jeep]=camper-van&address=san%20francisco';
+    !input || input === ''
+      ? 'https://odc-search-staging.herokuapp.com/rentals?&address=san%20francisco'
+      : 'https://odc-search-staging.herokuapp.com/rentals?filter[type]=' +
+        input +
+        '&address=san%20francisco';
+
   const res = await fetch(url);
   const obj = await res.json();
 
-  const newData = obj.data.map(el => {
-    const imageId = el.relationships.primary_image.data.id;
-    const newObj = Object.values(obj.included);
+  const dataIncluded = obj?.included;
+
+  const newData = obj?.data.map(el => {
+    const imageId = el?.relationships?.primary_image?.data?.id;
+    const newObj = Object.values(dataIncluded);
+    console.log(obj);
+    //const imageArray = el?.relationships?.images;
     const imageData = newObj.filter(elem => elem.id === imageId).map(x => x.attributes.url);
     return {
       id: el.id,
@@ -19,6 +28,7 @@ const getVans = async () => {
       url: imageData,
     };
   });
+  console.log(newData);
   return newData;
 };
 export default getVans;
