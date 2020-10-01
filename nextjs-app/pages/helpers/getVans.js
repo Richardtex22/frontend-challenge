@@ -9,9 +9,13 @@ const getVans = async input => {
   const res = await fetch(url);
   const obj = await res.json();
 
+  const dataIncluded = obj?.included;
+
   const newData = obj?.data.map(el => {
     const imageId = el?.relationships?.primary_image?.data?.id;
-    const newObj = Object.values(obj.included);
+    const newObj = Object.values(dataIncluded);
+    console.log(obj);
+    //const imageArray = el?.relationships?.images;
     const imageData = newObj.filter(elem => elem.id === imageId).map(x => x.attributes.url);
     return {
       id: el.id,
