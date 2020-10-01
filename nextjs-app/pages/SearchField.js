@@ -11,6 +11,7 @@ const SearchField = ({ fetchVans }) => {
     fetchVans(search);
     setSearch('');
   };
+
   return (
     <>
       <p className="header">Campervans</p>
