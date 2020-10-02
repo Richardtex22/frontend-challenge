@@ -26,9 +26,10 @@ const Cards = ({ van }) => {
   const updateCount = () => {
     if (count <= counter) {
       setCount(count + 4);
-    } else {
-      setCount(counter);
-      window.scrollTo(0);
+    }
+    if (counter === 0) {
+      setCount(8);
+      location.reload();
     }
   };
 
@@ -155,7 +156,7 @@ const Cards = ({ van }) => {
         })}
       </div>
       <div className="button-container">
-        {count > counter ? (
+        {count > counter && counter > 0 ? (
           <div className="center-buttons">
             <div className="button-ref">
               <button className="button" id="refresh" onClick={() => reload()}>
@@ -169,7 +170,7 @@ const Cards = ({ van }) => {
         ) : (
           <div className="center">
             <button className="button" onClick={() => updateCount()}>
-              Load More
+              {counter > 1 ? 'Load More' : 'Reload'}
             </button>
           </div>
         )}
