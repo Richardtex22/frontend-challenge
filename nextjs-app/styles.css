@@ -136,9 +136,10 @@ justify-content: center;
   border-radius: 0.3rem;
   transition: all .5s ease; 
 }
+/* The transition in this hover will look good but 
+needs to be fixed overriding the hover in mobile*/
 .image:hover {
   max-width: 22rem;
-  max-height: 14rem;
 }
 .avatar{
   border-radius: 50%;
@@ -234,7 +235,6 @@ justify-content: center;
   display: flex;
 }
 
-/* The Close Button */
 .close {
   color: #aaaaaa;
   float: right;
@@ -250,6 +250,10 @@ justify-content: center;
 }
 
 @media (max-width: 420px) {
+  .image:hover {
+    max-width: 47rem;
+    max-height: 30rem;
+  }
   .button-ref {
     margin-bottom: 5rem;
 }
@@ -343,6 +347,7 @@ justify-content: center;
       max-width: 47rem;
       max-height: 30rem;
       border-radius: 0.5rem;
+      transition: unset !important;
     }
     .info {
       width: 45rem;
