@@ -14,9 +14,8 @@ const getVans = async input => {
   const newData = obj?.data.map(el => {
     const imageId = el?.relationships?.primary_image?.data?.id;
     const newObj = Object.values(dataIncluded);
-    console.log(obj);
-    //const imageArray = el?.relationships?.images;
     const imageData = newObj.filter(elem => elem.id === imageId).map(x => x.attributes.url);
+
     return {
       id: el.id,
       imgId: el.relationships.primary_image.data.id,
@@ -28,7 +27,6 @@ const getVans = async input => {
       url: imageData,
     };
   });
-  console.log(newData);
   return newData;
 };
 export default getVans;

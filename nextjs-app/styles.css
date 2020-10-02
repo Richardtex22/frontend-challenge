@@ -134,7 +134,11 @@ justify-content: center;
   max-width: 21rem;
   max-height: 14rem;
   border-radius: 0.3rem;
-  cursor: pointer;  
+  transition: all .5s ease; 
+}
+.image:hover {
+  max-width: 22rem;
+  max-height: 14rem;
 }
 .avatar{
   border-radius: 50%;
@@ -150,9 +154,6 @@ justify-content: center;
   padding-right: 1rem;
 }
 
-.image:hover {
-  transition: all 5s ease;
-}
 .price-detail {
   color: #fff;
   position: relative;
@@ -176,6 +177,7 @@ justify-content: center;
   width: 44rem;
   height: 14rem;
   box-shadow: unset !important;
+  cursor: pointer;
 }
 .box-details {
   display: flex;
@@ -220,6 +222,17 @@ justify-content: center;
   font-size: 5rem;
   color: red;
 }
+.center-buttons{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.button-ref {
+  display: flex;
+}
 
 /* The Close Button */
 .close {
@@ -237,6 +250,12 @@ justify-content: center;
 }
 
 @media (max-width: 420px) {
+  .button-ref {
+    margin-bottom: 5rem;
+}
+  .button-container { 
+    height: 20rem;
+  }
   .title {
     height: 6rem;
   }
@@ -299,11 +318,12 @@ justify-content: center;
       height: 4.5rem;
     }
     .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 25%;
+      transform: translate(50%, -50%);
+    }
+    .center-buttons{
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
     }
     .cont {
       margin: 1rem -0.5rem;
@@ -355,6 +375,7 @@ justify-content: center;
       width: 10rem;
       height: 4.5rem;
       font-size: 1.3rem;
+      margin: 1rem;
     }
     .text-container {
       height: 4rem;

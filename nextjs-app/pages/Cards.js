@@ -122,7 +122,7 @@ const Cards = ({ van }) => {
           const price = item.price.toString().slice(0, 3);
           return (
             <div key={item.id}>
-              <Card className="box">
+              <Card className="box" onClick={() => fetchDetails(item.id)}>
                 <CardMedia
                   className="image"
                   component="img"
@@ -131,7 +131,6 @@ const Cards = ({ van }) => {
                       ? 'https://odc-img.herokuapp.com/insecure/czM6Ly9vdXRkb29yc3ktdXNlci1pbWFnZXMtdXMtd2VzdC0yL3Jlcy9vdXRkb29yc3kvaW1hZ2UvdXBsb2FkL3AvcmVudGFscy80MzY2MC9pbWFnZXMvaW5peXRrYTFjZ2N3anl6bXByNTcvMTUyMjg3ODEzNC5qcGc='
                       : item.url
                   }
-                  onClick={() => fetchDetails(item.id)}
                 />
                 <CardContent className="info">
                   <h6 className="location">
@@ -156,8 +155,8 @@ const Cards = ({ van }) => {
         })}
       </div>
       <div className="button-container">
-        <div className="center">
-          {count > counter ? (
+        {count > counter ? (
+          <div className="center-buttons">
             <div className="button-ref">
               <button className="button" id="refresh" onClick={() => reload()}>
                 Refresh
@@ -166,12 +165,14 @@ const Cards = ({ van }) => {
                 Go to top
               </button>
             </div>
-          ) : (
+          </div>
+        ) : (
+          <div className="center">
             <button className="button" onClick={() => updateCount()}>
               Load More
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </>
   );
