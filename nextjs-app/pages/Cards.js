@@ -19,7 +19,7 @@ const Cards = ({ van }) => {
   const [details, setDetails] = useState({});
   const [open, setOpen] = useState(false);
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const newVan = Object.values(van);
   const counter = newVan.length;
@@ -59,7 +59,12 @@ const Cards = ({ van }) => {
         fullScreen={true}
       >
         <DialogTitle className="title">
-          <CloseIcon edge="end" className="close-button" onClick={handleClose}></CloseIcon>
+          <CloseIcon
+            edge="end"
+            fontSize="large"
+            className="close-button"
+            onClick={handleClose}
+          ></CloseIcon>
         </DialogTitle>
         <div className="dialog-content">
           <Card className="box-details" key={details.id}>
@@ -71,7 +76,7 @@ const Cards = ({ van }) => {
                       key={index}
                       className="image-detail"
                       component="img"
-                      image={el}
+                      image={el ? el : ''}
                     ></CardMedia>
                   );
                 })
@@ -82,7 +87,7 @@ const Cards = ({ van }) => {
                       key={index}
                       className="image-detail"
                       component="img"
-                      image={el}
+                      image={el ? el : ''}
                     ></CardMedia>
                   );
                 })
@@ -92,7 +97,7 @@ const Cards = ({ van }) => {
             )}
           </Card>
         </div>
-        <CardContent className="details-container">
+        <div className="details-container">
           <div className="info-details">
             <h6 className="location">
               {details.type} - {details.location}
@@ -102,11 +107,15 @@ const Cards = ({ van }) => {
             </div>
             <p className="description-details">{details.vehicule}</p>
             <div className="owner-info">
-              <img alt="details-images" src={details.avatar} className="avatar"></img>
+              <img
+                alt=""
+                src={details.avatar ? details.avatar : '../public/coming-soon.jpg'}
+                className="avatar"
+              ></img>
               <p className="name">{details.name}</p>
             </div>
           </div>
-        </CardContent>
+        </div>
       </Dialog>
       <div className="grid">
         {newVan.splice(0, count).map(item => {
@@ -118,9 +127,9 @@ const Cards = ({ van }) => {
                   className="image"
                   component="img"
                   image={
-                    item
-                      ? item?.url
-                      : 'https://odc-img.herokuapp.com/insecure/czM6Ly9vdXRkb29yc3ktdXNlci1pbWFnZXMtdXMtd2VzdC0yL3Jlcy9vdXRkb29yc3kvaW1hZ2UvdXBsb2FkL3AvcmVudGFscy80MzY1NC9pbWFnZXMvcWcyd2ppZjZ0amt3ZDB4Z21jZ3UvMTUyMjg3NzYwNi5qcGc='
+                    item.url === ''
+                      ? 'https://odc-img.herokuapp.com/insecure/czM6Ly9vdXRkb29yc3ktdXNlci1pbWFnZXMtdXMtd2VzdC0yL3Jlcy9vdXRkb29yc3kvaW1hZ2UvdXBsb2FkL3AvcmVudGFscy80MzY2MC9pbWFnZXMvaW5peXRrYTFjZ2N3anl6bXByNTcvMTUyMjg3ODEzNC5qcGc='
+                      : item.url
                   }
                   onClick={() => fetchDetails(item.id)}
                 />

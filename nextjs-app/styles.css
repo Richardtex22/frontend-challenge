@@ -36,7 +36,7 @@
 }
 
 .title {
-  height: 3rem;
+  height: 4rem;
   background-color: #4caf50;
 }
 .content {
@@ -198,7 +198,7 @@ justify-content: center;
   color: orange;
 }
 .cont {
-  margin: 5rem;
+  margin: 3rem;
 }
 .text-container {
   display: flex;
@@ -230,8 +230,21 @@ justify-content: center;
 }
 
 /* breakpoints for mobile */
+@media (min-width: 500px) and (max-width: 768px) {
+  .title {
+    height: 4rem;
+  }
+}
 
 @media (max-width: 420px) {
+  .title {
+    height: 6rem;
+  }
+  .close-button {
+    font-size: 3.5rem !important;
+    top: 1.3rem;
+    right: 1.5rem;
+  }
   .details-container{
     height: 20rem;
     margin-bottom: 2rem;
