@@ -8,7 +8,6 @@ import '../styles.css';
 export default function App() {
   const [van, setVan] = useState({});
   const [counter, setCounter] = useState(0);
-  //const [details, setDetails] = useState({});
 
   useEffect(() => {
     fetchVans();
