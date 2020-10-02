@@ -8,7 +8,10 @@ const SearchField = ({ fetchVans }) => {
   }, []);
 
   const updateVans = search => {
-    fetchVans(search);
+    let str = search.toLowerCase();
+    let s = str.replace(' ', '-');
+    console.log(s);
+    fetchVans(s);
     setSearch('');
   };
 
@@ -20,6 +23,7 @@ const SearchField = ({ fetchVans }) => {
       </label>
       <div className="text-container">
         <input
+          placeholder="E.g. trailer, camper van, other..."
           className="text-field"
           id="search"
           value={search}

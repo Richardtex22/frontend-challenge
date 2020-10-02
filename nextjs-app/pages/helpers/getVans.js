@@ -12,6 +12,7 @@ const getVans = async input => {
   const dataIncluded = obj?.included;
 
   const newData = obj?.data.map(el => {
+    console.log(el);
     const imageId = el?.relationships?.primary_image?.data?.id;
     const newObj = Object.values(dataIncluded);
     console.log(obj);
