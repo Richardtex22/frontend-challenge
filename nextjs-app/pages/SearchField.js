@@ -10,7 +10,6 @@ const SearchField = ({ fetchVans }) => {
   const updateVans = search => {
     let str = search.toLowerCase();
     let s = str.replace(' ', '-');
-    console.log(s);
     fetchVans(s);
     setSearch('');
   };
